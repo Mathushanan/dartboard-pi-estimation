@@ -87,10 +87,13 @@ def plot_results(dataframe):
 
 # Main block to define simulation parameters and execute the code
 if __name__ == "__main__":
-    # Define parameters for the simulation
-    num_darts_list = [1000, 10000, 100000, 1000000]
-    num_experiments = 10
-    num_runs = 10
+    # Get parameters from the user
+    num_darts_list_str = input(
+        "Enter a list of comma-separated numbers for the number of darts (e.g., 1000, 10000, 100000, 1000000): ")
+    num_darts_list = [int(num_darts) for num_darts in num_darts_list_str.split(',')]
+
+    num_experiments = int(input("Enter the number of experiments: "))
+    num_runs = int(input("Enter the number of runs: "))
 
     # Run the simulation and store the results
     simulation_results = run_simulation(num_darts_list, num_experiments, num_runs)
